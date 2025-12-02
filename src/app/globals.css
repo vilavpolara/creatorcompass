@@ -1,4 +1,10 @@
+/* Import Tailwind v4 */
 @import "tailwindcss";
+
+/* Ensure layers load properly */
+@layer base {}
+@layer components {}
+@layer utilities {}
 
 /* Fade-in Animation */
 @keyframes fadeIn {
