@@ -4,6 +4,12 @@ import { DndContext, useDraggable, useDroppable } from "@dnd-kit/core";
 import { useEffect, useState } from "react";
 import GradientHeader from "@/components/GradientHeader";
 
+type CalendarTask = {
+  id: string;
+  item: string;
+  day: number;
+};
+
 function Task({
   id,
   title,
@@ -94,7 +100,7 @@ function Day({
 }
 
 export default function CalendarPage() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState<CalendarTask[]>([]);
 
   async function loadTasks() {
     const res = await fetch("/api/calendar");

@@ -1,5 +1,9 @@
 export async function dataCollectorAgent() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/youtube`);
+  const base = process.env.NEXT_PUBLIC_SITE_URL!;
+  const res = await fetch(`${base}/api/youtube`, {
+    cache: "no-store",
+});
+
   const yt = await res.json();
 
   const channelStats = yt.channel.items[0].statistics;
